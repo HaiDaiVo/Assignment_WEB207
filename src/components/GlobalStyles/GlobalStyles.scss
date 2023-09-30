@@ -1,0 +1,54 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-neutral-800;
+  }
+
+  html.dark {
+    @apply text-neutral-50;
+    @apply bg-neutral-800;
+  }
+}
+
+
+:root {
+
+}
+
+html{ 
+
+}
+
+body {
+      font-family: 'Libre Baskerville', serif;
+}
+
+:root {
+}
+
+a:hover {
+  cursor : pointer;
+}
+
+.input-customer:focus ~ .input-text,
+.input-customer:not(:placeholder-shown).input-customer:not(:focus)~ .input-text
+{
+  @apply  bg-white transform -translate-y-5 translate-x-0 scale-75 ;
+}
+
+.input-customer:focus~.input-text{
+  @apply text-blue-500
+ 
+}
+.input-customer:not(:focus)~.input-text{
+ opacity: .6;
+}
+.sidebar:hover .sidebar-item{
+  margin-left: .8rem;
+  justify-content: start !important;
+}
