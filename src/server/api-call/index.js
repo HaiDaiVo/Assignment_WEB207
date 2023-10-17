@@ -47,6 +47,14 @@ async function getStaticticalTestAPI() {
             return null;
       }
 }
+async function getStaticticalTestByUserAPI() {
+      try {
+            const response = await axios.get('http://localhost:8080/HD-EDUCATION/api-all-test-of-student');
+            return response;
+      } catch (e) {
+            return null;
+      }
+}
 
 async function createNewExamAPI(data) {
       try {
@@ -87,5 +95,5 @@ async function updateExamAPI(data) {
       }
 }
 
-export { getAuthAPI, getSubjectsAPI, registerAPI, getExamAPI, updateProfileAPI, updateExamAPI, createNewExamAPI, updateAnswerAPI, getStaticticalTestAPI }
+export { getAuthAPI, getSubjectsAPI, registerAPI, getExamAPI, updateProfileAPI, updateExamAPI, createNewExamAPI, updateAnswerAPI, getStaticticalTestAPI, getStaticticalTestByUserAPI }
 export default getSubjectsAPI;

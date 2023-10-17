@@ -3,7 +3,6 @@ import React from 'react';
 import { Fragment } from 'react'
 import { publicRoutes, privateRoutes } from './routes';
 import DefaultLayout from './components/Layouts/DefaultLayout';
-
 function App() {
   const routerF = function (publicRoutes) {
     console.log(111);

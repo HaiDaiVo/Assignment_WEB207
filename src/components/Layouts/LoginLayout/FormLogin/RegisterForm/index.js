@@ -28,8 +28,10 @@ function RegisterForm({ onToggleForm }) {
             async function fatchData(data) {
                   try {
                         const response = await registerAPI(data);
-                        if (response.status === true) {
-                              navigate('/login');
+                        console.log(response.data);
+                        if (response.data.status === true) {
+                              onToggleForm();
+                              // navigate('/login');
                         }
                   } catch (err) {
                         console.log(err);

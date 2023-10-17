@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, NavLink } from 'react-router-dom';
 import StudentProfileComponent from "~/components/StudentProfileComponent";
@@ -29,7 +30,6 @@ function ExamLayout() {
       useEffect(() => {
             // Cấu hình Axios để tự động gửi cookie - phair gui cookies moi nhan dien duoc ban la ai tren session server
             const paramsGet = { 'subjectId': params.id }
-            console.log(paramsGet);
             async function fetchData(paramsGet) {
                   try {
                         const response = await getExamAPI(paramsGet);
@@ -81,7 +81,6 @@ function ExamLayout() {
                   'questionId': questionId,
                   'answerId': studentAnswers.get(questionId) === undefined ? 0 : studentAnswers.get(questionId)
             }
-            console.log(data);
             async function fetchData(data) {
                   try {
                         const response = await updateAnswerAPI(data);
@@ -115,7 +114,6 @@ function ExamLayout() {
       }
       // xử lý checker answers 
       const handlersOnCheck = (questionId, answerId) => {
-            console.log(questionId);
             setStudentAnswers(prev => {
                   const update = new Map(prev);
                   update.set(questionId, answerId)
@@ -147,7 +145,6 @@ function ExamLayout() {
 
                   if (studentAnswers.get(id) === answerId) score += 1;
             }
-            console.log(score);
             return score
       }
 
@@ -209,7 +206,9 @@ function ExamLayout() {
                   {/**  Show confirm finish */}
                   {showConfirmFinish ?
                         (<React.Fragment>
-                              <div className="w-screen h-screen bg-[#3333335a] flex fixed z-10">
+                              <div className="w-screen h-screen bg-[#3333335a] flex fixed z-10 "
+                                    onClick={() => { handleConfirmFinish() }}
+                              >
                                     <div className="p-8 rounded-lg bg-white shadow-lg shadow-[#3d3a3a50] m-auto flex flex-col items-center justify-center space-y-6 ">
                                           <div className="space-y-1 text-center">
                                                 <h1 className="block text-xl mb-6">Bạn muốn kết thúc kiểm tra?</h1>
@@ -312,7 +311,6 @@ function ExamLayout() {
                                                 {/* control */}
                                                 <div className=" h-24 w-full flex flex-col ">
                                                       <div className=" h-1/2 w-full flex justify-center items-center">
-
                                                             {/* Pagination */}
                                                             <nav aria-label="Page navigation example " className="border border-red rounded-3xl border-solid bg-slate-50 p-1">
                                                                   <ul className="list-style-none flex">
@@ -382,7 +380,7 @@ function LoadingPage() {
             <React.Fragment>
                   <div className="m-auto relative">
                         <div
-                              class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                              className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                               role="status">
                         </div>
 

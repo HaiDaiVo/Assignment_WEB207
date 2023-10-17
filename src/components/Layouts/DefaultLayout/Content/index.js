@@ -7,7 +7,7 @@ function Content({ children }) {
                         <div className="p-8 w-full lg:right-0 lg:w-11/12 min-h-[1200px]">
                               {children}
                         </div>
-                        <Footer />
+                    
                   </div>
             </React.Fragment>
       )
