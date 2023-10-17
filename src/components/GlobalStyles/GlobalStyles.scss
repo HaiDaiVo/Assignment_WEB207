@@ -40,7 +40,13 @@ a:hover {
 {
   @apply  bg-white transform -translate-y-5 translate-x-0 scale-75 ;
 }
+.validation-truetype ~ #input-validate{
+  @apply hidden
+}
 
+.input-customer:focus ~ #input-validate{
+  @apply hidden
+}
 .input-customer:focus~.input-text{
   @apply text-blue-500
  
@@ -52,3 +58,4 @@ a:hover {
   margin-left: .8rem;
   justify-content: start !important;
 }
+

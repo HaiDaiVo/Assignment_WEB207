@@ -1,65 +1,54 @@
-import React from 'react';
-import Carousel from "~/components/Carousel";
-import { logo } from "~/assets/images/index.js";
-import GradientBg from "~/assets/GradientBackground";
+import React, { useEffect, useState } from 'react';
 import CourserComponent from '~/components/CourseComponent';
+import getSubjectsAPI from '~/server/api-call';
+import CoverImage from "~/assets/images/Login_background.jpg"
 
-const courses = {
-      course1: {
-            id: 'id1',
-            title: 'HTML-CSS Cơ bản',
-            backgroundImage: GradientBg.Yellows.y_2,
-            logo: logo.HTCS,
-            textColor: 'white'
-      },
-      course2: {
-            id: 'id2',
-            title: 'LẬP TRÌNH JAVA 1',
-            backgroundImage: GradientBg.Reds.r_1,
-            logo: logo.JABS,
-            textColor: 'white'
-      },
-      course3: {
-            id: 'id3',
-            title: 'LẬP TRÌNH PHP',
-            backgroundImage: GradientBg.Reds.r_2,
-            logo: logo.PHPP,
-            textColor: 'white'
-      },
-}
 
 
 
 function CourseContent() {
-      console.log(courses);
+      const [subjects, setSubjects] = useState([]);
+      useEffect(() => {
+            async function fetchData() {
+                  try {
+                        const subjectsData = await getSubjectsAPI();
+                        setSubjects(subjectsData.data); // Cập nhật state khi dữ liệu đã sẵn sàng
+                  } catch (error) {
+                        console.error(error);
+                  }
+            }
+            fetchData();
+      }, []);
       return (
             <React.Fragment>
-                  {/** Contents */}
-                  <div className="mb-8 w-full  h-fit">
-                        <h1 className="m-6 text-3xl font-bold text-blue-700">Đang học </h1>
-                        {/**Danh sách khóa học */}
-                        <div className="w-full mb-12 grid grid-cols-1 grid-flow-row gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-4  ">
-                              {/*Rander courses*/}
-                              <CourserComponent classes={'h-32'} course={courses.course1} />
-                              <CourserComponent classes={' h-32'} course={courses.course2} />
-                              <CourserComponent classes={'h-32'} course={courses.course3} />
-                              <CourserComponent classes={'h-32'} course={courses.course1} />
-                              <CourserComponent classes={' h-32'} course={courses.course2} />
+
+                  {/**Danh sách khóa học */}
+                  <div className="w-full grid grid-cols-1 grid-flow-row gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-4  ">
+                        {/*Rander courses*/}
+                        <div className="mt-6 lg:mt-6 min-h-[550px] w-[85vw] flex flex-col rounded-lg shadow-lg m-auto">
+                              <div className="h-72 rounded-t-lg relative">
+                                    <img
+                                          src={CoverImage}
+                                          alt="Cover Image"
+                                          className="w-full h-full object-cover rounded-t-lg"
+                                    />
+
+                              </div>
+
+                              <div className="h-96 my-6 w-full rounded-lg flex flex-col items-center justify-between text-gray-700">
+                                    <i> </i>
+
+                              </div>
+
+
+                              <div className="h-72 my-6 w-11/12 m-auto rounded-lg">
+                                    <h2 className="text-xl font-bold mb-4">Lịch sử làm kiểm tra</h2>
+                                   
+                              </div>
+
+
                         </div>
-                        <hr />
-                  </div>
-                  {/** Contents */}
-                  <div className="my-6 w-full">
-                        <h1 className="m-6 text-3xl font-bold text-blue-700">Khóa học nổi bật</h1>
-                        {/**Danh sách khóa học */}
-                        <div className="w-full h-fit grid grid-cols-1 grid-flow-row gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-4  ">
-                              {/*Rander courses*/}
-                              <CourserComponent classes={'h-32'} course={courses.course3} />
-                              <CourserComponent classes={' h-32'} course={courses.course2} />
-                              <CourserComponent classes={'h-32'} course={courses.course1} />
-                              <CourserComponent classes={'h-32'} course={courses.course1} />
-                              <CourserComponent classes={' h-32'} course={courses.course2} />
-                        </div>
+
 
                   </div>
             </React.Fragment>

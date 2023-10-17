@@ -1,9 +1,15 @@
-
+import React from 'react'
+import Footer from "../../components/Footer";
 function Content({ children }) {
       return (
-            <div className="p-8 w-full lg:absolute lg:right-0 lg:w-11/12 min-h-[1200px]">
-                  {children}
-            </div>
+            <React.Fragment>
+                  <div className="w-full flex flex-col items-end">
+                        <div className="p-8 w-full lg:right-0 lg:w-11/12 min-h-[1200px]">
+                              {children}
+                        </div>
+                        <Footer />
+                  </div>
+            </React.Fragment>
       )
 }
 

@@ -9,13 +9,6 @@ const logo = {
       background: require('./Login_background.jpg'),
 }
 
-const avatar = {
-      st1: require('./avatars/avatar-1.png'),
-}
 
-const icons = {
-      home: require('./icons/home.svg').default,
-}
-
-export { logo, avatar, icons }
-export default avatar 
+export { logo }
+export default logo

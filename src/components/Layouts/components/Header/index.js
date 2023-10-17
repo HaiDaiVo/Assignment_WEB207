@@ -1,25 +1,51 @@
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+import axios from "axios";
 import { logo } from "~/assets/images";
 import { useNavigate, NavLink } from "react-router-dom";
-import React, { useState } from "react";
 import { Search } from "react-feather";
 
 function Header({
-  logined = true
+  logined = false
 }) {
-
   const [isLogined, setLogined] = useState(logined);
   const navigater = useNavigate();
+
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/HD-EDUCATION/api-login')
+      .then(response => {
+        if (!response.data.token) {
+          setLogined(false);
+        } else {
+          setLogined(true);
+        }
+      })
+      .catch(error => {
+        console.error('Error sending data:', error);
+      })
+  }, [])
+
   const handleLoginButton = () => {
     if (isLogined) {
-      setLogined(!isLogined);
-      navigater('/')
+      axios.defaults.withCredentials = true;
+      axios.get('http://localhost:8080/HD-EDUCATION/api-logout')
+        .then(response => {
+
+        })
+        .catch(error => {
+          console.error('Error sending data:', error);
+        })
+      Cookies.remove("token");
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
     } else {
       setLogined(!isLogined);
       navigater('/login')
     }
   }
   const handlerSearchButton = () => {
-
   }
   return (
     <div className="flex justify-between items-center bg-white px-6 fixed shadow-md  bottom-0 lg:top-0 left-0 right-0 h-16 lg:h-14  z-10 ">

@@ -7,7 +7,8 @@ function FormLoginPage() {
       const handleToggleForm = () => {
             setLoginFormVisible(!isLoginFormVisible)
       };
-      
+ 
+
       return (
             <React.Fragment>
                   {isLoginFormVisible ? <LoginForm onToggleForm={handleToggleForm} /> : <RegisterForm onToggleForm={handleToggleForm} />}
