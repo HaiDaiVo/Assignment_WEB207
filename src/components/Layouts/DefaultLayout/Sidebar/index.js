@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaHouseChimney, FaSchool, FaFileSignature } from "react-icons/fa6"
+import { FaHouseChimney, FaSchool, FaFileSignature, FaFeatherPointed } from "react-icons/fa6"
 import { Collapse, initTE, } from "tw-elements"
 import avatar from "~/assets/images";
 import StudentProfileComponent from "~/components/StudentProfileComponent";
@@ -32,17 +32,17 @@ function Sidebar({ student }) {
           </NavLink>
 
           {/** */}
-          <NavLink to={'/exams'}
+          <NavLink to={'/courses'}
             className="hover:opacity-80"
             onClick={goTop()}
           >
-            <li className="hover:border-y-2 snap-center py-4 flex items-center justify-center sidebar-item transition ease-in-out delay-120 hover:traslate-x-1 hover:scale-105 duration-300 hover:bg-blue-200 active:bg-blue-400" >
+            <li className="hover:border-y-2  snap-center py-4 flex items-center justify-center sidebar-item transition ease-in-out delay-120 hover:traslate-x-1 hover:scale-105 duration-300 hover:bg-blue-200 active:bg-blue-400" >
               <FaFileSignature className="text-blue-500  h-8 w-8  group-hover:mr-5" />
-              <span className="hidden group-hover:block text-xl">Làm bài kiểm tra</span>
+              <span className="hidden group-hover:block text-xl">Khóa học</span>
             </li>
           </NavLink>
           {/** */}
-          <NavLink to={'/course'}
+          <NavLink to={'/introduce'}
             className="hover:opacity-80"
             onClick={goTop()}
           >
@@ -52,9 +52,15 @@ function Sidebar({ student }) {
             </li>
           </NavLink>
           {/** < Accordion />*/}
-          <li className="hover:border-y-2 snap-center py-4 flex items-center  ">
-
-          </li>
+          <NavLink to={'/introduce'}
+            className="hover:opacity-80"
+            onClick={goTop()}
+          >
+            <li className="hover:border-y-2 snap-center py-4 flex items-center justify-center sidebar-item transition ease-in-out delay-120 hover:traslate-x-1 hover:scale-105 duration-300 hover:bg-blue-200 active:bg-blue-400">
+              <FaFeatherPointed className="text-blue-500  h-8 w-8 group-hover:mr-5" />
+              <span className="hidden group-hover:block text-xl">Góp ý</span>
+            </li>
+          </NavLink>
 
         </ul>
       </div>

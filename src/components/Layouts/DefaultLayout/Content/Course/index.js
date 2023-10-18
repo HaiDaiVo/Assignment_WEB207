@@ -3,9 +3,7 @@ import getSubjectsAPI from '~/server/api-call';
 import CourserComponent from '~/components/CourseComponent';
 
 
-function ExamContent() {
-
-
+function Course() {
       const numberOfShows = 4;
       const [current, setCurrent] = useState(1);
       const [subjectsShow, setSubjectsShow] = useState();
@@ -56,12 +54,13 @@ function ExamContent() {
                                                       {subjectsShow.map((subject) => (
                                                             <CourserComponent
                                                                   id={subject.id}
+                                                                  name={subject.name}
                                                                   key={subject.id}
                                                                   classes={'h-44 md:h-56 transition ease-in-out delay-120 hover:traslate-x-1 hover:scale-105 duration-300'}
                                                                   title={subject.name}
                                                                   backgroundImage={subject.backgroundImage}
                                                                   logo={subject.logo}
-                                                                  type={'exam'}
+                                                                  type={'course'}
                                                                   textColor={"White"}
                                                             />
                                                       ))}
@@ -114,4 +113,4 @@ function ExamContent() {
             </React.Fragment>
       )
 }
-export default ExamContent;
+export default Course;

@@ -29,4 +29,19 @@ function ButtonGoTop(props) {
       );
 }
 
+function LoadingPageIcon() {
+      return (
+            <React.Fragment>
+                  <div className="m-auto relative">
+                        <div
+                              class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                              role="status">
+                        </div>
+
+                  </div>
+            </React.Fragment>
+      )
+}
+
+export { LoadingPageIcon }
 export default ButtonGoTop;

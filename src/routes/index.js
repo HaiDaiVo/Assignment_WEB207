@@ -1,8 +1,8 @@
 import Home from '../pages/Home';
 import Login from '../pages/Login';
-import Exams from '../pages/Exams';
+import Courses from '../pages/Courses';
 import Test from '../pages/Test';
-import Course from '../pages/Course';
+import Introduce from '~/components/Layouts/DefaultLayout/Content/Introduce';
 import Profile from '../pages/Profile';
 import Exam from '~/pages/Exam';
 import CourseDetail from '~/pages/Course/CourseDetail';
@@ -10,12 +10,13 @@ import CourseDetail from '~/pages/Course/CourseDetail';
 const publicRoutes = [
       { path: '/', component: Home },
       { path: '/login', component: Login, layout: null },
-      { path: '/exams', component: Exams },
       { path: '/test', component: Test, layout: null },
-      { path: '/course', component: Course },
+      { path: '/Courses', component: Courses },
       { path: '/profile', component: Profile, layout: null },
+      { path: '/introduce', component: Introduce },
       { path: '/course/detail', component: CourseDetail },
 
+      { path: '/course/detail/:id/:name', component: CourseDetail },
       { path: '/exams/:id', component: Exam, layout: null },
 ]
 //private routes

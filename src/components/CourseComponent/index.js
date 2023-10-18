@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 function CourserComponent({
       id = "",
+      name = "",
       title = "",
       logo = "",
       backgroundImage = "",
@@ -16,7 +17,7 @@ function CourserComponent({
             case 'course': types = 'course/detail'; break;
             case 'exam': types = 'exams'; break;
       }
-      return (<NavLink to={`/${types}/${id}`}>
+      return (<NavLink to={`/${types}/${id}/${name}`}>
             <div
                   className={classes + " bg-red-100 rounded-md p-3 flex justify-between  "}
                   style={{ backgroundImage: backgroundImage }}

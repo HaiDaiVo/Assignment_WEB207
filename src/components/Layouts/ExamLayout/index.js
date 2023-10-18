@@ -6,7 +6,7 @@ import { getExamAPI, createNewExamAPI, updateAnswerAPI } from '~/server/api-call
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import TimeRemaining from './component/TimeTemaining';
 import { Ripple, initTE, } from "tw-elements";
-import { FALSE } from 'sass';
+import { LoadingPageIcon } from '~/components/Common';
 
 initTE({ Ripple });
 
@@ -259,7 +259,7 @@ function ExamLayout() {
                                                       </li>
                                                 ) : (
                                                       <div className="flex">
-                                                            <LoadingPage />
+                                                            <LoadingPageIcon />
                                                       </div>
 
                                                 )
@@ -360,7 +360,7 @@ function ExamLayout() {
                                                 </div>
                                           </React.Fragment>) :
                                           (
-                                                <LoadingPage />
+                                                <LoadingPageIcon />
                                           )
                                     }
                               </div>
@@ -375,18 +375,5 @@ function ExamLayout() {
       );
 }
 
-function LoadingPage() {
-      return (
-            <React.Fragment>
-                  <div className="m-auto relative">
-                        <div
-                              className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                              role="status">
-                        </div>
-
-                  </div>
-            </React.Fragment>
-      )
-}
 
 export default ExamLayout;

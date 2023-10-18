@@ -6,7 +6,7 @@ import { logo } from "~/assets/images";
 
 
 
-function CourseContent() {
+function Introduce() {
       const [subjects, setSubjects] = useState([]);
       useEffect(() => {
             async function fetchData() {
@@ -80,4 +80,4 @@ function CourseContent() {
       );
 }
 
-export default CourseContent;
+export default Introduce;

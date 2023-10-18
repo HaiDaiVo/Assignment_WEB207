@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Carousel from "~/components/Carousel";
 import { formatDate } from "~/Utils/DateUtil"
 import { getSubjectsAPI, getStaticticalTestAPI } from "~/server/api-call"
+import { LoadingPageIcon } from '~/components/Common';
 
 function HomeContent() {
       const defaultAvatar = "https://bloganchoi.com/wp-content/uploads/2022/02/avatar-trang-y-nghia.jpeg"
@@ -57,11 +58,11 @@ function HomeContent() {
       return (
             <React.Fragment>
                   {/* Carousel - slides*/}
-                  <NavLink to="/exams">
+               
                         <div className="mb-12 h-[12rem]  xl:h-[16rem]">
                               {subjects ? (<Carousel autoSlide={true} subjects={subjects} />) : ""}
                         </div>
-                  </NavLink>
+              
 
                   {/** Contents */}
                   <div className=" min-h-[900px] w-full">
@@ -116,7 +117,7 @@ function HomeContent() {
                                                 ) : (
                                                       (
                                                             <React.Fragment>
-                                                                  <div className="w-full min-h-[28rem] flex items-center"> < LoadingPage /></div>
+                                                                  <div className="w-full min-h-[28rem] flex items-center"> < LoadingPageIcon /></div>
                                                             </React.Fragment>
                                                       )
                                                 )
@@ -157,19 +158,5 @@ function HomeContent() {
       )
 }
 
-
-function LoadingPage() {
-      return (
-            <React.Fragment>
-                  <div className="m-auto relative">
-                        <div
-                              class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                              role="status">
-                        </div>
-
-                  </div>
-            </React.Fragment>
-      )
-}
 
 export default HomeContent;

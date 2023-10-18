@@ -39,19 +39,6 @@ function LoginForm({ onToggleForm }) {
             }
       }
 
-      useEffect(() => {
-            const keyDownHandler = event => {
-                  if (event.key === 'Enter') {
-                        // 👇️ call submit function here
-                        handleSubmit();
-                  }
-            };
-            document.addEventListener('keydown', keyDownHandler);
-            return () => {
-                  document.removeEventListener('keydown', keyDownHandler);
-            };
-      }, []);
-
       const handleOnchange = (event) => {
             if (event.target.id === "usernameLogin") {
                   setUsername(event.target.value);
@@ -61,6 +48,7 @@ function LoginForm({ onToggleForm }) {
                   setPassword(event.target.value);
                   setPasswordError()
             }
+            setLoginStatus("")
       }
 
       function isvalid(data) {
